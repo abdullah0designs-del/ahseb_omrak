@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
     <!-- Canvas Confetti for Birthday Effect -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    
+
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -46,7 +47,7 @@
             font-family: 'Cairo', sans-serif;
             transition: background-color 0.5s, color 0.5s;
         }
-        
+
         .glass-card {
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(16px);
@@ -54,7 +55,7 @@
             border: 1px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
         }
-        
+
         .dark .glass-card {
             background: rgba(17, 24, 39, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -67,7 +68,7 @@
             background-size: 400% 400%;
             animation: gradient-x 15s ease infinite;
         }
-        
+
         .dark .bg-gradient-dark {
             background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #121212);
             background-size: 400% 400%;
@@ -78,24 +79,27 @@
         ::-webkit-scrollbar {
             width: 8px;
         }
+
         ::-webkit-scrollbar-track {
-            background: rgba(0,0,0,0.1); 
+            background: rgba(0, 0, 0, 0.1);
         }
+
         ::-webkit-scrollbar-thumb {
-            background: rgba(255,255,255,0.4); 
+            background: rgba(255, 255, 255, 0.4);
             border-radius: 10px;
         }
+
         .dark ::-webkit-scrollbar-thumb {
-            background: rgba(255,255,255,0.2); 
+            background: rgba(255, 255, 255, 0.2);
         }
-        
+
         .number-stat {
             font-variant-numeric: tabular-nums;
         }
     </style>
-    <script src="https://pl28980588.profitablecpmratenetwork.com/81/b4/32/81b432687bea0d3353f84bd7e4b11f34.js"></script>
 
 </head>
+
 <body class="bg-gradient-light dark:bg-gradient-dark text-gray-800 dark:text-gray-100 min-h-screen">
 
     <!-- Navbar -->
@@ -106,7 +110,8 @@
                 حاسبة العمر الشاملة
             </h1>
             <div class="flex gap-4 items-center">
-                <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-white/20 transition-all" title="تبديل المظهر">
+                <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-white/20 transition-all"
+                    title="تبديل المظهر">
                     <i id="theme-icon" class="fas fa-moon text-xl"></i>
                 </button>
             </div>
@@ -115,12 +120,13 @@
 
     <main class="container mx-auto px-4 pb-12">
         <!-- Input Section -->
-        <div class="glass-card rounded-3xl p-8 max-w-3xl mx-auto mb-12 transform hover:scale-[1.01] transition-transform duration-300">
+        <div
+            class="glass-card rounded-3xl p-8 max-w-3xl mx-auto mb-12 transform hover:scale-[1.01] transition-transform duration-300">
             <div class="text-center mb-8">
                 <h2 class="text-3xl font-bold mb-2">أدخل تاريخ ووقت ميلادك</h2>
                 <p class="opacity-80">اكتشف أكثر من 50 حقيقة وإحصائية مذهلة عن حياتك!</p>
             </div>
-            
+
             <form id="ageForm" class="flex flex-col md:flex-row gap-4 justify-center items-end">
                 <div class="w-full md:w-auto flex-grow">
                     <label for="birthdate" class="block mb-2 text-sm font-semibold">تاريخ الميلاد *</label>
@@ -132,13 +138,14 @@
                     <input type="time" id="birthtime" value="00:00"
                         class="w-full p-4 rounded-xl bg-white/50 dark:bg-black/30 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 backdrop-blur-sm transition-all text-gray-900 dark:text-white">
                 </div>
-                <button type="submit" 
+                <button type="submit"
                     class="w-full md:w-auto px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-lg hover:shadow-indigo-500/50 transition-all duration-300 transform hover:-translate-y-1">
                     <i class="fas fa-magic mr-2"></i> احسب الآن
                 </button>
             </form>
             <div class="text-center mt-4">
-                <button onclick="copyResults()" id="copyBtn" class="hidden text-sm text-indigo-200 hover:text-white underline">
+                <button onclick="copyResults()" id="copyBtn"
+                    class="hidden text-sm text-indigo-200 hover:text-white underline">
                     <i class="fas fa-copy"></i> نسخ النتائج
                 </button>
             </div>
@@ -151,24 +158,31 @@
 
         <!-- Results Section -->
         <div id="results" class="hidden space-y-8 animate-fade-in-up">
-            
+
             <!-- Main Live Age -->
             <div class="glass-card rounded-3xl p-8 text-center relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-                <div class="absolute top-0 left-0 w-64 h-64 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-                
+                <div
+                    class="absolute top-0 right-0 w-64 h-64 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob">
+                </div>
+                <div
+                    class="absolute top-0 left-0 w-64 h-64 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000">
+                </div>
+
                 <h2 class="text-2xl font-semibold mb-6">عمرك الآن بالتحديد هو:</h2>
                 <div class="flex flex-wrap justify-center gap-4 text-center z-10 relative">
                     <div class="bg-white/20 dark:bg-black/20 rounded-2xl p-4 min-w-[100px]">
-                        <div id="live-years" class="text-5xl font-bold number-stat text-indigo-600 dark:text-indigo-400">0</div>
+                        <div id="live-years"
+                            class="text-5xl font-bold number-stat text-indigo-600 dark:text-indigo-400">0</div>
                         <div class="text-sm mt-1 font-semibold">سنوات</div>
                     </div>
                     <div class="bg-white/20 dark:bg-black/20 rounded-2xl p-4 min-w-[100px]">
-                        <div id="live-months" class="text-5xl font-bold number-stat text-pink-600 dark:text-pink-400">0</div>
+                        <div id="live-months" class="text-5xl font-bold number-stat text-pink-600 dark:text-pink-400">0
+                        </div>
                         <div class="text-sm mt-1 font-semibold">أشهر</div>
                     </div>
                     <div class="bg-white/20 dark:bg-black/20 rounded-2xl p-4 min-w-[100px]">
-                        <div id="live-days" class="text-5xl font-bold number-stat text-orange-600 dark:text-orange-400">0</div>
+                        <div id="live-days" class="text-5xl font-bold number-stat text-orange-600 dark:text-orange-400">
+                            0</div>
                         <div class="text-sm mt-1 font-semibold">أيام</div>
                     </div>
                 </div>
@@ -193,17 +207,22 @@
                 <!-- Moon & Numerology -->
                 <div class="glass-card rounded-3xl p-6 relative overflow-hidden">
                     <i class="fas fa-moon absolute -left-4 -top-4 text-8xl opacity-10"></i>
-                    <h3 class="text-xl font-bold mb-4 border-b border-white/20 pb-2"><i class="fas fa-magic text-yellow-300 ml-2"></i>أسرار يوم ميلادك</h3>
+                    <h3 class="text-xl font-bold mb-4 border-b border-white/20 pb-2"><i
+                            class="fas fa-magic text-yellow-300 ml-2"></i>أسرار يوم ميلادك</h3>
                     <ul class="space-y-4 relative z-10">
                         <li class="flex flex-col">
-                            <span class="opacity-80 text-sm"><i class="fas fa-star text-yellow-200 ml-1"></i> طور القمر عند ولادتك:</span>
+                            <span class="opacity-80 text-sm"><i class="fas fa-star text-yellow-200 ml-1"></i> طور القمر
+                                عند ولادتك:</span>
                             <strong id="moon-phase" class="text-lg text-indigo-700 dark:text-indigo-300 mt-1"></strong>
                         </li>
                         <li class="flex flex-col">
-                            <span class="opacity-80 text-sm"><i class="fas fa-sort-numeric-up text-pink-300 ml-1"></i> مسار حياتك (علم الأرقام):</span>
+                            <span class="opacity-80 text-sm"><i class="fas fa-sort-numeric-up text-pink-300 ml-1"></i>
+                                مسار حياتك (علم الأرقام):</span>
                             <div class="flex items-center gap-3 mt-1">
-                                <span id="life-path-num" class="text-3xl font-bold text-pink-600 dark:text-pink-400"></span>
-                                <span id="life-path-desc" class="text-sm opacity-80 border-r-2 border-pink-400 pr-3"></span>
+                                <span id="life-path-num"
+                                    class="text-3xl font-bold text-pink-600 dark:text-pink-400"></span>
+                                <span id="life-path-desc"
+                                    class="text-sm opacity-80 border-r-2 border-pink-400 pr-3"></span>
                             </div>
                         </li>
                     </ul>
@@ -211,23 +230,30 @@
 
                 <!-- Fun Cumulative Stats -->
                 <div class="glass-card rounded-3xl p-6">
-                    <h3 class="text-xl font-bold mb-4 border-b border-white/20 pb-2"><i class="fas fa-walking text-green-500 ml-2"></i>حصيلة حياتك (بناءً على المتوسط)</h3>
+                    <h3 class="text-xl font-bold mb-4 border-b border-white/20 pb-2"><i
+                            class="fas fa-walking text-green-500 ml-2"></i>حصيلة حياتك (بناءً على المتوسط)</h3>
                     <div class="grid grid-cols-2 gap-4 text-sm">
                         <div class="bg-white/10 dark:bg-black/20 p-3 rounded-xl">
-                            <span class="opacity-80 block text-xs mb-1"><i class="fas fa-bed text-blue-400 ml-1"></i>وقت استغرقته في النوم:</span>
+                            <span class="opacity-80 block text-xs mb-1"><i class="fas fa-bed text-blue-400 ml-1"></i>وقت
+                                استغرقته في النوم:</span>
                             <strong id="stat-sleep" class="text-md"></strong>
                         </div>
                         <div class="bg-white/10 dark:bg-black/20 p-3 rounded-xl">
-                            <span class="opacity-80 block text-xs mb-1"><i class="fas fa-shoe-prints text-orange-400 ml-1"></i>خطوات مشيتها:</span>
-                            <strong id="stat-steps" class="text-lg number-stat text-orange-600 dark:text-orange-300"></strong>
+                            <span class="opacity-80 block text-xs mb-1"><i
+                                    class="fas fa-shoe-prints text-orange-400 ml-1"></i>خطوات مشيتها:</span>
+                            <strong id="stat-steps"
+                                class="text-lg number-stat text-orange-600 dark:text-orange-300"></strong>
                         </div>
                         <div class="bg-white/10 dark:bg-black/20 p-3 rounded-xl">
-                            <span class="opacity-80 block text-xs mb-1"><i class="fas fa-utensils text-red-400 ml-1"></i>طعام استهلكته:</span>
+                            <span class="opacity-80 block text-xs mb-1"><i
+                                    class="fas fa-utensils text-red-400 ml-1"></i>طعام استهلكته:</span>
                             <strong id="stat-food" class="text-lg number-stat text-red-600 dark:text-red-300"></strong>
                         </div>
                         <div class="bg-white/10 dark:bg-black/20 p-3 rounded-xl">
-                            <span class="opacity-80 block text-xs mb-1"><i class="fas fa-comment-dots text-purple-400 ml-1"></i>كلمات نطقتها:</span>
-                            <strong id="stat-words" class="text-lg number-stat text-purple-600 dark:text-purple-300"></strong>
+                            <span class="opacity-80 block text-xs mb-1"><i
+                                    class="fas fa-comment-dots text-purple-400 ml-1"></i>كلمات نطقتها:</span>
+                            <strong id="stat-words"
+                                class="text-lg number-stat text-purple-600 dark:text-purple-300"></strong>
                         </div>
                     </div>
                 </div>
@@ -235,10 +261,11 @@
 
             <!-- Dashboard Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                
+
                 <!-- Next Birthday -->
                 <div class="glass-card rounded-2xl p-6">
-                    <h3 class="text-lg font-bold mb-4 border-b border-white/20 pb-2"><i class="fas fa-birthday-cake text-pink-500 ml-2"></i>عيد ميلادك القادم</h3>
+                    <h3 class="text-lg font-bold mb-4 border-b border-white/20 pb-2"><i
+                            class="fas fa-birthday-cake text-pink-500 ml-2"></i>عيد ميلادك القادم</h3>
                     <div class="grid grid-cols-4 gap-2 text-center">
                         <div>
                             <div id="next-bd-days" class="text-2xl font-bold number-stat">0</div>
@@ -262,54 +289,78 @@
 
                 <!-- Day Info -->
                 <div class="glass-card rounded-2xl p-6">
-                    <h3 class="text-lg font-bold mb-4 border-b border-white/20 pb-2"><i class="fas fa-calendar-day text-blue-500 ml-2"></i>معلومات يوم الميلاد</h3>
+                    <h3 class="text-lg font-bold mb-4 border-b border-white/20 pb-2"><i
+                            class="fas fa-calendar-day text-blue-500 ml-2"></i>معلومات يوم الميلاد</h3>
                     <ul class="space-y-3">
-                        <li class="flex justify-between items-center"><span class="opacity-80"><i class="fas fa-sun ml-1"></i> يوم الأسبوع:</span> <strong id="info-day" class="text-lg"></strong></li>
-                        <li class="flex justify-between items-center"><span class="opacity-80"><i class="fas fa-leaf ml-1"></i> الفصل:</span> <strong id="info-season"></strong></li>
-                        <li class="flex justify-between items-center"><span class="opacity-80"><i class="fas fa-frog ml-1"></i> سنة كبيسة:</span> <strong id="info-leap"></strong></li>
-                        <li class="flex justify-between items-center"><span class="opacity-80"><i class="fas fa-users ml-1"></i> الجيل:</span> <strong id="info-generation" class="text-sm"></strong></li>
+                        <li class="flex justify-between items-center"><span class="opacity-80"><i
+                                    class="fas fa-sun ml-1"></i> يوم الأسبوع:</span> <strong id="info-day"
+                                class="text-lg"></strong></li>
+                        <li class="flex justify-between items-center"><span class="opacity-80"><i
+                                    class="fas fa-leaf ml-1"></i> الفصل:</span> <strong id="info-season"></strong></li>
+                        <li class="flex justify-between items-center"><span class="opacity-80"><i
+                                    class="fas fa-frog ml-1"></i> سنة كبيسة:</span> <strong id="info-leap"></strong>
+                        </li>
+                        <li class="flex justify-between items-center"><span class="opacity-80"><i
+                                    class="fas fa-users ml-1"></i> الجيل:</span> <strong id="info-generation"
+                                class="text-sm"></strong></li>
                     </ul>
                 </div>
 
                 <!-- Zodiac & Symbols -->
                 <div class="glass-card rounded-2xl p-6">
-                    <h3 class="text-lg font-bold mb-4 border-b border-white/20 pb-2"><i class="fas fa-star-and-crescent text-yellow-500 ml-2"></i>الأبراج والرموز</h3>
+                    <h3 class="text-lg font-bold mb-4 border-b border-white/20 pb-2"><i
+                            class="fas fa-star-and-crescent text-yellow-500 ml-2"></i>الأبراج والرموز</h3>
                     <ul class="space-y-3">
-                        <li class="flex justify-between items-center"><span class="opacity-80">البرج الغربي:</span> <strong id="zodiac-west"></strong></li>
-                        <li class="flex justify-between items-center"><span class="opacity-80">البرج الصيني:</span> <strong id="zodiac-chinese"></strong></li>
-                        <li class="flex justify-between items-center"><span class="opacity-80">حجر الميلاد:</span> <strong id="birth-stone"></strong></li>
-                        <li class="flex justify-between items-center"><span class="opacity-80">زهرة الميلاد:</span> <strong id="birth-flower"></strong></li>
+                        <li class="flex justify-between items-center"><span class="opacity-80">البرج الغربي:</span>
+                            <strong id="zodiac-west"></strong></li>
+                        <li class="flex justify-between items-center"><span class="opacity-80">البرج الصيني:</span>
+                            <strong id="zodiac-chinese"></strong></li>
+                        <li class="flex justify-between items-center"><span class="opacity-80">حجر الميلاد:</span>
+                            <strong id="birth-stone"></strong></li>
+                        <li class="flex justify-between items-center"><span class="opacity-80">زهرة الميلاد:</span>
+                            <strong id="birth-flower"></strong></li>
                     </ul>
                 </div>
 
                 <!-- Total Time Lived -->
                 <div class="glass-card rounded-2xl p-6">
-                    <h3 class="text-lg font-bold mb-4 border-b border-white/20 pb-2"><i class="fas fa-stopwatch text-purple-500 ml-2"></i>إجمالي الوقت المنقضي</h3>
+                    <h3 class="text-lg font-bold mb-4 border-b border-white/20 pb-2"><i
+                            class="fas fa-stopwatch text-purple-500 ml-2"></i>إجمالي الوقت المنقضي</h3>
                     <ul class="space-y-2 text-sm">
-                        <li class="flex justify-between border-b border-white/10 pb-1"><span class="opacity-80">إجمالي الأشهر:</span> <strong id="tot-months" class="number-stat"></strong></li>
-                        <li class="flex justify-between border-b border-white/10 pb-1"><span class="opacity-80">إجمالي الأسابيع:</span> <strong id="tot-weeks" class="number-stat"></strong></li>
-                        <li class="flex justify-between border-b border-white/10 pb-1"><span class="opacity-80">إجمالي الأيام:</span> <strong id="tot-days" class="number-stat"></strong></li>
-                        <li class="flex justify-between border-b border-white/10 pb-1"><span class="opacity-80">إجمالي الساعات:</span> <strong id="tot-hours" class="number-stat"></strong></li>
-                        <li class="flex justify-between border-b border-white/10 pb-1"><span class="opacity-80">إجمالي الدقائق:</span> <strong id="tot-minutes" class="number-stat"></strong></li>
-                        <li class="flex justify-between"><span class="opacity-80">إجمالي الثواني:</span> <strong id="tot-seconds" class="number-stat"></strong></li>
+                        <li class="flex justify-between border-b border-white/10 pb-1"><span class="opacity-80">إجمالي
+                                الأشهر:</span> <strong id="tot-months" class="number-stat"></strong></li>
+                        <li class="flex justify-between border-b border-white/10 pb-1"><span class="opacity-80">إجمالي
+                                الأسابيع:</span> <strong id="tot-weeks" class="number-stat"></strong></li>
+                        <li class="flex justify-between border-b border-white/10 pb-1"><span class="opacity-80">إجمالي
+                                الأيام:</span> <strong id="tot-days" class="number-stat"></strong></li>
+                        <li class="flex justify-between border-b border-white/10 pb-1"><span class="opacity-80">إجمالي
+                                الساعات:</span> <strong id="tot-hours" class="number-stat"></strong></li>
+                        <li class="flex justify-between border-b border-white/10 pb-1"><span class="opacity-80">إجمالي
+                                الدقائق:</span> <strong id="tot-minutes" class="number-stat"></strong></li>
+                        <li class="flex justify-between"><span class="opacity-80">إجمالي الثواني:</span> <strong
+                                id="tot-seconds" class="number-stat"></strong></li>
                     </ul>
                 </div>
 
                 <!-- Fun Stats (Approximate) -->
                 <div class="glass-card rounded-2xl p-6 relative overflow-hidden">
                     <i class="fas fa-heartbeat absolute -left-4 -bottom-4 text-8xl opacity-5"></i>
-                    <h3 class="text-lg font-bold mb-4 border-b border-white/20 pb-2"><i class="fas fa-chart-line text-red-500 ml-2"></i>إحصائيات حيوية (تقريبية)</h3>
+                    <h3 class="text-lg font-bold mb-4 border-b border-white/20 pb-2"><i
+                            class="fas fa-chart-line text-red-500 ml-2"></i>إحصائيات حيوية (تقريبية)</h3>
                     <ul class="space-y-3">
                         <li class="flex flex-col">
-                            <span class="opacity-80 text-sm"><i class="fas fa-heart text-red-500 ml-1"></i> دقات قلبك حتى الآن:</span> 
+                            <span class="opacity-80 text-sm"><i class="fas fa-heart text-red-500 ml-1"></i> دقات قلبك
+                                حتى الآن:</span>
                             <strong id="stat-heart" class="text-xl number-stat text-left dir-ltr"></strong>
                         </li>
                         <li class="flex flex-col">
-                            <span class="opacity-80 text-sm"><i class="fas fa-wind text-teal-500 ml-1"></i> الأنفاس التي أخذتها:</span> 
+                            <span class="opacity-80 text-sm"><i class="fas fa-wind text-teal-500 ml-1"></i> الأنفاس التي
+                                أخذتها:</span>
                             <strong id="stat-breath" class="text-xl number-stat text-left dir-ltr"></strong>
                         </li>
                         <li class="flex flex-col">
-                            <span class="opacity-80 text-sm"><i class="fas fa-globe-americas text-blue-500 ml-1"></i> مسافة سفرك عبر الفضاء (كم):</span> 
+                            <span class="opacity-80 text-sm"><i class="fas fa-globe-americas text-blue-500 ml-1"></i>
+                                مسافة سفرك عبر الفضاء (كم):</span>
                             <strong id="stat-space" class="text-xl number-stat text-left dir-ltr"></strong>
                             <span class="text-[10px] opacity-60">بناءً على دوران الأرض حول الشمس</span>
                         </li>
@@ -318,15 +369,18 @@
 
                 <!-- Milestones -->
                 <div class="glass-card rounded-2xl p-6">
-                    <h3 class="text-lg font-bold mb-4 border-b border-white/20 pb-2"><i class="fas fa-flag-checkered text-orange-500 ml-2"></i>محطات قادمة</h3>
+                    <h3 class="text-lg font-bold mb-4 border-b border-white/20 pb-2"><i
+                            class="fas fa-flag-checkered text-orange-500 ml-2"></i>محطات قادمة</h3>
                     <ul class="space-y-4">
                         <li>
                             <div class="text-sm opacity-80 mb-1">عيد ميلادك النصف سنوي:</div>
                             <strong id="half-birthday" class="bg-white/10 px-2 py-1 rounded block text-center"></strong>
                         </li>
                         <li>
-                            <div class="text-sm opacity-80 mb-1">اليوم الذي تكمل فيه <span id="next-10k-target"></span> يوم:</div>
-                            <strong id="next-10k-days" class="bg-white/10 px-2 py-1 rounded block text-center text-orange-300"></strong>
+                            <div class="text-sm opacity-80 mb-1">اليوم الذي تكمل فيه <span id="next-10k-target"></span>
+                                يوم:</div>
+                            <strong id="next-10k-days"
+                                class="bg-white/10 px-2 py-1 rounded block text-center text-orange-300"></strong>
                         </li>
                     </ul>
                 </div>
@@ -335,7 +389,8 @@
 
             <!-- Age on other planets -->
             <div class="glass-card rounded-3xl p-6 mt-8">
-                <h3 class="text-xl font-bold mb-6 text-center"><i class="fas fa-rocket text-indigo-400 ml-2"></i>عمرك على كواكب المجموعة الشمسية</h3>
+                <h3 class="text-xl font-bold mb-6 text-center"><i class="fas fa-rocket text-indigo-400 ml-2"></i>عمرك
+                    على كواكب المجموعة الشمسية</h3>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                     <div class="p-3 bg-white/5 dark:bg-black/20 rounded-xl hover:bg-white/10 transition">
                         <div class="text-2xl mb-1">🪐</div>
@@ -388,7 +443,7 @@
         // --- Theme Management ---
         const html = document.documentElement;
         const themeIcon = document.getElementById('theme-icon');
-        
+
         // Initial theme check
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             html.classList.add('dark');
@@ -421,12 +476,12 @@
         }
 
         // --- Main Calculation ---
-        document.getElementById('ageForm').addEventListener('submit', function(e) {
+        document.getElementById('ageForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             const dateVal = document.getElementById('birthdate').value;
             const timeVal = document.getElementById('birthtime').value || '00:00';
-            
+
             if (!dateVal) return;
 
             birthDateObj = new Date(`${dateVal}T${timeVal}`);
@@ -443,16 +498,16 @@
             document.getElementById('copyBtn').classList.add('hidden');
 
             // Clear previous interval
-            if(liveInterval) clearInterval(liveInterval);
+            if (liveInterval) clearInterval(liveInterval);
 
             setTimeout(() => {
                 document.getElementById('loading').classList.add('hidden');
                 document.getElementById('results').classList.remove('hidden');
                 document.getElementById('copyBtn').classList.remove('hidden');
-                
+
                 // Static Data Generation (Once)
                 generateStaticData(birthDateObj);
-                
+
                 // Check if birthday is today
                 if (birthDateObj.getDate() === now.getDate() && birthDateObj.getMonth() === now.getMonth()) {
                     triggerConfetti();
@@ -461,7 +516,7 @@
                 // Live Data Generation (Every Second)
                 updateLiveData();
                 liveInterval = setInterval(updateLiveData, 1000);
-                
+
                 // Scroll to results
                 document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
 
@@ -471,7 +526,7 @@
         function updateLiveData() {
             const now = new Date();
             const diffTime = now - birthDateObj; // milliseconds
-            
+
             // 1. Exact Age (Years, Months, Days, Hours, Mins, Secs)
             let years = now.getFullYear() - birthDateObj.getFullYear();
             let months = now.getMonth() - birthDateObj.getMonth();
@@ -522,7 +577,7 @@
             document.getElementById('tot-minutes').innerText = formatNumber(totMinutes);
             document.getElementById('tot-hours').innerText = formatNumber(totHours);
             document.getElementById('tot-days').innerText = formatNumber(totDays);
-            document.getElementById('tot-weeks').innerText = formatNumber(Math.floor(totDays/7));
+            document.getElementById('tot-weeks').innerText = formatNumber(Math.floor(totDays / 7));
             document.getElementById('tot-months').innerText = formatNumber(Math.floor(totMonths));
 
             // 3. Next Birthday Countdown
@@ -530,7 +585,7 @@
             if (now > nextBDay) {
                 nextBDay.setFullYear(now.getFullYear() + 1);
             }
-            
+
             const bdDiff = nextBDay - now;
             const bdDays = Math.floor(bdDiff / (1000 * 60 * 60 * 24));
             const bdHours = Math.floor((bdDiff / (1000 * 60 * 60)) % 24);
@@ -541,7 +596,7 @@
             document.getElementById('next-bd-hours').innerText = bdHours;
             document.getElementById('next-bd-minutes').innerText = bdMinutes;
             document.getElementById('next-bd-seconds').innerText = bdSeconds;
-            
+
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
             document.getElementById('next-bd-date').innerText = nextBDay.toLocaleDateString('ar-EG', options);
 
@@ -552,7 +607,7 @@
 
             // 5. New Features: Cumulative Habits (Sleep, Steps, Food, Words)
             const totalExactDays = diffTime / (1000 * 60 * 60 * 24);
-            
+
             // Sleep (approx 1/3 of life)
             let sleepYears = Math.floor(years / 3);
             let sleepMonths = Math.floor(months / 3);
@@ -560,10 +615,10 @@
 
             // Steps (avg 7,500 per day)
             document.getElementById('stat-steps').innerText = formatNumber(Math.floor(totalExactDays * 7500));
-            
+
             // Food (avg 2.5 kg per day)
             document.getElementById('stat-food').innerText = formatNumber(Math.floor(totalExactDays * 2.5)) + " كجم";
-            
+
             // Words (avg 7,000 words per day)
             document.getElementById('stat-words').innerText = formatNumber(Math.floor(totalExactDays * 7000));
         }
@@ -575,39 +630,39 @@
 
             // Day Name
             document.getElementById('info-day').innerText = arabicDays[bDate.getDay()];
-            
+
             // Leap Year
             const isLeap = ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
             document.getElementById('info-leap').innerText = isLeap ? "نعم ✅" : "لا ❌";
 
             // Season
             let season = "";
-            if(month >= 3 && month <= 5) season = "الربيع 🌸";
-            else if(month >= 6 && month <= 8) season = "الصيف ☀️";
-            else if(month >= 9 && month <= 11) season = "الخريف 🍂";
+            if (month >= 3 && month <= 5) season = "الربيع 🌸";
+            else if (month >= 6 && month <= 8) season = "الصيف ☀️";
+            else if (month >= 9 && month <= 11) season = "الخريف 🍂";
             else season = "الشتاء ❄️";
             document.getElementById('info-season').innerText = season;
 
             // Generation
             let gen = "";
-            if(year >= 1928 && year <= 1945) gen = "الجيل الصامت";
-            else if(year >= 1946 && year <= 1964) gen = "طفرة المواليد (Boomers)";
-            else if(year >= 1965 && year <= 1980) gen = "الجيل إكس (Gen X)";
-            else if(year >= 1981 && year <= 1996) gen = "جيل الألفية (Millennials)";
-            else if(year >= 1997 && year <= 2012) gen = "الجيل زد (Gen Z)";
-            else if(year >= 2013) gen = "جيل ألفا (Gen Alpha)";
+            if (year >= 1928 && year <= 1945) gen = "الجيل الصامت";
+            else if (year >= 1946 && year <= 1964) gen = "طفرة المواليد (Boomers)";
+            else if (year >= 1965 && year <= 1980) gen = "الجيل إكس (Gen X)";
+            else if (year >= 1981 && year <= 1996) gen = "جيل الألفية (Millennials)";
+            else if (year >= 1997 && year <= 2012) gen = "الجيل زد (Gen Z)";
+            else if (year >= 2013) gen = "جيل ألفا (Gen Alpha)";
             document.getElementById('info-generation').innerText = gen;
 
             // Zodiacs
             document.getElementById('zodiac-west').innerHTML = getWesternZodiac(day, month);
             document.getElementById('zodiac-chinese').innerText = getChineseZodiac(year);
-            
+
             // Stones & Flowers
             const stones = ["العقيق (Garnet)", "الجمشت (Amethyst)", "الزبرجد (Aquamarine)", "الماس (Diamond)", "الزمرد (Emerald)", "اللؤلؤ (Pearl)", "الياقوت (Ruby)", "الزبرجد الزيتوني (Peridot)", "الياقوت الأزرق (Sapphire)", "الأوبال (Opal)", "التوباز (Topaz)", "الفيروز (Turquoise)"];
             const flowers = ["القرنفل", "البنفسج", "النرجس", "الديزي", "زنبق الوادي", "الورد", "العائق", "الغلاديولس", "النجمة", "الآذريون", "الأقحوان", "النرجس الورقي"];
-            
-            document.getElementById('birth-stone').innerText = stones[month-1];
-            document.getElementById('birth-flower').innerText = flowers[month-1];
+
+            document.getElementById('birth-stone').innerText = stones[month - 1];
+            document.getElementById('birth-flower').innerText = flowers[month - 1];
 
             // Moon Phase Calculation
             document.getElementById('moon-phase').innerText = getMoonPhase(year, month, day);
@@ -620,17 +675,17 @@
             // Half Birthday
             let halfDate = new Date(bDate);
             halfDate.setMonth(halfDate.getMonth() + 6);
-            document.getElementById('half-birthday').innerText = halfDate.toLocaleDateString('ar-EG', {month: 'long', day:'numeric'});
+            document.getElementById('half-birthday').innerText = halfDate.toLocaleDateString('ar-EG', { month: 'long', day: 'numeric' });
 
             // Milestones (Next 10k days)
             const now = new Date();
             const daysLived = Math.floor((now - bDate) / (1000 * 60 * 60 * 24));
             const nextTarget = Math.ceil((daysLived + 1) / 5000) * 5000; // Find next 5k or 10k milestone
             document.getElementById('next-10k-target').innerText = formatNumber(nextTarget);
-            
+
             let targetDate = new Date(bDate);
             targetDate.setDate(targetDate.getDate() + nextTarget);
-            document.getElementById('next-10k-days').innerText = targetDate.toLocaleDateString('ar-EG', {year: 'numeric', month: 'long', day:'numeric'});
+            document.getElementById('next-10k-days').innerText = targetDate.toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' });
 
             // Planets calculation
             const earthYears = (now - bDate) / (1000 * 60 * 60 * 24 * 365.25);
@@ -652,13 +707,13 @@
             ++month;
             c = 365.25 * year;
             e = 30.6 * month;
-            jd = c + e + day - 694039.09; 
-            jd /= 29.5305882; 
-            b = parseInt(jd); 
-            jd -= b; 
-            b = Math.round(jd * 8); 
-            if (b >= 8) b = 0; 
-            
+            jd = c + e + day - 694039.09;
+            jd /= 29.5305882;
+            b = parseInt(jd);
+            jd -= b;
+            b = Math.round(jd * 8);
+            if (b >= 8) b = 0;
+
             const phases = [
                 "محاق (New Moon) 🌑", "هلال متزايد (Waxing Crescent) 🌒",
                 "تربيع أول (First Quarter) 🌓", "أحدب متزايد (Waxing Gibbous) 🌔",
@@ -671,15 +726,15 @@
         function getLifePathNumber(year, month, day) {
             const sumDigits = (num) => {
                 let sum = 0;
-                while(num > 0) { sum += num % 10; num = Math.floor(num / 10); }
+                while (num > 0) { sum += num % 10; num = Math.floor(num / 10); }
                 return sum;
             };
-            
+
             let total = sumDigits(year) + sumDigits(month) + sumDigits(day);
             while (total > 9 && total !== 11 && total !== 22 && total !== 33) {
                 total = sumDigits(total);
             }
-            
+
             const meanings = {
                 1: "يتميز بالقيادة، الاستقلالية، والابتكار.",
                 2: "يعبر عن التعاون، الدبلوماسية، وصنع السلام.",
@@ -694,23 +749,23 @@
                 22: "رقم ماستر: البناء العظيم وتحويل الأحلام لواقع.",
                 33: "رقم ماستر: الخدمة الإيثارية والتوجيه الروحي."
             };
-            
+
             return { number: total, desc: meanings[total] || "رقم مميز بطابع خاص." };
         }
 
         function getWesternZodiac(day, month) {
-            if((month == 1 && day <= 19) || (month == 12 && day >= 22)) return "الجدي ♑";
-            if((month == 1 && day >= 20) || (month == 2 && day <= 18)) return "الدلو ♒";
-            if((month == 2 && day >= 19) || (month == 3 && day <= 20)) return "الحوت ♓";
-            if((month == 3 && day >= 21) || (month == 4 && day <= 19)) return "الحمل ♈";
-            if((month == 4 && day >= 20) || (month == 5 && day <= 20)) return "الثور ♉";
-            if((month == 5 && day >= 21) || (month == 6 && day <= 20)) return "الجوزاء ♊";
-            if((month == 6 && day >= 21) || (month == 7 && day <= 22)) return "السرطان ♋";
-            if((month == 7 && day >= 23) || (month == 8 && day <= 22)) return "الأسد ♌";
-            if((month == 8 && day >= 23) || (month == 9 && day <= 22)) return "العذراء ♍";
-            if((month == 9 && day >= 23) || (month == 10 && day <= 22)) return "الميزان ♎";
-            if((month == 10 && day >= 23) || (month == 11 && day <= 21)) return "العقرب ♏";
-            if((month == 11 && day >= 22) || (month == 12 && day <= 21)) return "القوس ♐";
+            if ((month == 1 && day <= 19) || (month == 12 && day >= 22)) return "الجدي ♑";
+            if ((month == 1 && day >= 20) || (month == 2 && day <= 18)) return "الدلو ♒";
+            if ((month == 2 && day >= 19) || (month == 3 && day <= 20)) return "الحوت ♓";
+            if ((month == 3 && day >= 21) || (month == 4 && day <= 19)) return "الحمل ♈";
+            if ((month == 4 && day >= 20) || (month == 5 && day <= 20)) return "الثور ♉";
+            if ((month == 5 && day >= 21) || (month == 6 && day <= 20)) return "الجوزاء ♊";
+            if ((month == 6 && day >= 21) || (month == 7 && day <= 22)) return "السرطان ♋";
+            if ((month == 7 && day >= 23) || (month == 8 && day <= 22)) return "الأسد ♌";
+            if ((month == 8 && day >= 23) || (month == 9 && day <= 22)) return "العذراء ♍";
+            if ((month == 9 && day >= 23) || (month == 10 && day <= 22)) return "الميزان ♎";
+            if ((month == 10 && day >= 23) || (month == 11 && day <= 21)) return "العقرب ♏";
+            if ((month == 11 && day >= 22) || (month == 12 && day <= 21)) return "القوس ♐";
             return "غير معروف";
         }
 
@@ -726,7 +781,7 @@
 
             function randomInRange(min, max) { return Math.random() * (max - min) + min; }
 
-            var interval = setInterval(function() {
+            var interval = setInterval(function () {
                 var timeLeft = animationEnd - Date.now();
                 if (timeLeft <= 0) return clearInterval(interval);
 
@@ -738,12 +793,12 @@
 
         function copyResults() {
             const textToCopy = `عمري الآن: ${document.getElementById('live-years').innerText} سنة و ${document.getElementById('live-months').innerText} شهر و ${document.getElementById('live-days').innerText} يوم!\nتم الحساب بواسطة حاسبة العمر الشاملة ⏳`;
-            
+
             const textarea = document.createElement('textarea');
             textarea.value = textToCopy;
             document.body.appendChild(textarea);
             textarea.select();
-            
+
             try {
                 document.execCommand('copy');
                 const btn = document.getElementById('copyBtn');
@@ -763,4 +818,5 @@
     </script>
 
 </body>
+
 </html>
